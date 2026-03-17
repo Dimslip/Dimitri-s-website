@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimitri Tassigny — Private English Teacher</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --ink: #1a2535;
+      --ink-soft: #3d5166;
+      --blue-deep: #2a5f8f;
+      --blue-mid: #4a90c4;
+      --blue-light: #c8dff0;
+      --blue-pale: #eaf4fb;
+      --cream: #fafcfe;
+      --white: #ffffff;
+      --accent: #a8c8e8;
+      --gold: #b8955a;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: relative;
+      background: var(--blue-deep);
+      overflow: hidden;
+      padding: 80px 24px 90px;
+      text-align: center;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(74,144,196,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(168,200,232,0.2) 0%, transparent 50%);
+    }
+
+    header::after {
+      content: '"';
+      position: absolute;
+      right: -10px;
+      bottom: -60px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 320px;
+      color: rgba(255,255,255,0.04);
+      line-height: 1;
+      pointer-events: none;
+    }
+
+    .header-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(48px, 9vw, 84px);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.05;
+      margin-bottom: 18px;
+      letter-spacing: -0.5px;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .header-sub {
+      font-size: 16px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .header-divider {
+      width: 48px;
+      height: 1px;
+      background: var(--gold);
+      margin: 28px auto;
+      opacity: 0.8;
+    }
+
+    /* ── MAIN CONTENT ── */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about {
+      padding: 72px 0 64px;
+      position: relative;
+    }
+
+    .section-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+      margin-bottom: 16px;
+    }
+
+    .about h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+
+    .about h2 em {
+      font-style: italic;
+      color: var(--blue-deep);
+    }
+
+    .about p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.85;
+      color: var(--ink-soft);
+      margin-bottom: 16px;
+      max-width: 620px;
+    }
+
+    .about p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .about-card {
+      margin-top: 40px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--blue-light);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(42,95,143,0.08);
+    }
+
+    .stat {
+      background: var(--white);
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--blue-deep);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      font-weight: 400;
+      color: var(--ink-soft);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── SERVICES SECTION ── */
+    .services {
+      padding: 64px 0;
+      border-top: 1px solid var(--blue-light);
+    }
+
+    .services h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 40px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--blue-light);
+      border-radius: 12px;
+      padding: 28px 24px 32px;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--blue-mid), var(--accent));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(42,95,143,0.12);
+      border-color: var(--accent);
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-icon {
+      font-size: 28px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    .service-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .service-desc {
+      font-size: 13.5px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.7;
+    }
+
+    /* ── QUOTE BAND ── */
+    .quote-band {
+      background: var(--blue-pale);
+      border-left: 3px solid var(--blue-mid);
+      border-radius: 0 10px 10px 0;
+      padding: 32px 36px;
+      margin: 64px 0;
+    }
+
+    .quote-band blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 3.5vw, 26px);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--blue-deep);
+      line-height: 1.55;
+    }
+
+    .quote-band cite {
+      display: block;
+      margin-top: 14px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--blue-mid);
+    }
+
+    /* ── CONTACT SECTION ── */
+    .contact {
+      padding: 64px 0 0;
+      border-top: 1px solid var(--blue-light);
+      text-align: center;
+    }
+
+    .contact h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(30px, 5vw, 44px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .contact p {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto 40px;
+    }
+
+    .btn-contact {
+      display: inline-block;
+      background: var(--blue-deep);
+      color: var(--white);
+      text-decoration: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      border-radius: 50px;
+      transition: background 0.25s ease, transform 0.2s ease, box-shadow 0.25s ease;
+      box-shadow: 0 4px 20px rgba(42,95,143,0.25);
+    }
+
+    .btn-contact:hover {
+      background: var(--blue-mid);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(42,95,143,0.35);
+    }
+
+    .btn-contact:active {
+      transform: translateY(0);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      margin-top: 80px;
+      padding: 28px 24px;
+      background: var(--ink);
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.5px;
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .header-inner { animation: fadeUp 0.8s ease both; }
+    .about        { animation: fadeUp 0.8s 0.1s ease both; }
+    .services     { animation: fadeUp 0.8s 0.15s ease both; }
+    .contact      { animation: fadeUp 0.8s 0.2s ease both; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 560px) {
+      header { padding: 60px 20px 72px; }
+
+      .about-card {
+        grid-template-columns: 1fr;
+      }
+
+      .stat {
+        border-bottom: 1px solid var(--blue-light);
+      }
+
+      .stat:last-child {
+        border-bottom: none;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .quote-band {
+        padding: 24px 20px;
+        margin: 40px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header>
+    <div class="header-inner">
+      <span class="eyebrow">Private English Tuition</span>
+      <h1>Sarah <em>Mitchell</em></h1>
+      <div class="header-divider"></div>
+      <p class="header-sub">Helping professionals and students communicate with confidence, clarity, and purpose.</p>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ── ABOUT ── -->
+    <section class="about">
+      <p class="section-label">Teaching Philosophy</p>
+      <h2>Language learned with <em>intention</em> lasts a lifetime.</h2>
+      <p>
+        I believe that great language teaching goes far beyond grammar drills and vocabulary lists. In every lesson, I focus on building real communicative competence — the kind that gives you the confidence to speak in a boardroom, write a compelling email, or hold a conversation that truly connects.
+      </p>
+      <p>
+        My approach is warm, structured, and always tailored to you. Whether you're preparing for a high-stakes exam or simply want to feel more fluent in everyday life, I'll design a learning path that fits your goals, schedule, and pace.
+      </p>
+
+      <div class="about-card">
+        <div class="stat">
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Years teaching</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">200+</div>
+          <div class="stat-label">Students taught</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">CELTA</div>
+          <div class="stat-label">Qualified</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SERVICES ── -->
+    <section class="services">
+      <p class="section-label">What I Offer</p>
+      <h2>Lessons for every goal</h2>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <span class="service-icon">📝</span>
+          <div class="service-title">Exam Preparation</div>
+          <p class="service-desc">Targeted coaching for IELTS, TOEFL, Cambridge (B2, C1, C2), and other internationally recognised qualifications.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">💼</span>
+          <div class="service-title">Business English</div>
+          <p class="service-desc">Presentations, negotiations, email writing, and professional vocabulary for the modern workplace.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">🗣️</span>
+          <div class="service-title">Conversation Practice</div>
+          <p class="service-desc">Fluency-focused sessions that build confidence through discussion, debate, and real-world role play.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">📖</span>
+          <div class="service-title">General English</div>
+          <p class="service-desc">Comprehensive lessons covering grammar, reading, writing, and listening for all levels from A1 to C2.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">✍️</span>
+          <div class="service-title">Academic Writing</div>
+          <p class="service-desc">Essays, reports, and dissertations — from structure and argumentation to academic style and referencing.</p>
+        </div>
+
+        <div class="service-card">
+          <span class="service-icon">👤</span>
+          <div class="service-title">1-to-1 Intensive</div>
+          <p class="service-desc">Rapid-progress programmes designed around your specific needs, with daily or multi-session weekly plans.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── QUOTE ── -->
+    <div class="quote-band">
+      <blockquote>
+        "The limits of my language mean the limits of my world."
+      </blockquote>
+      <cite>— Ludwig Wittgenstein</cite>
+    </div>
+
+    <!-- ── CONTACT ── -->
+    <section class="contact">
+      <p class="section-label">Get in Touch</p>
+      <h2>Ready to start your journey?</h2>
+      <p>
+        I offer a free 20-minute introductory call so we can discuss your goals and find the right approach for you. No commitment required.
+      </p>
+      <a class="btn-contact" href="mailto:hello@sarahmitchell.com?subject=English%20Lesson%20Enquiry&body=Hi%20Sarah%2C%0A%0AI%20would%20love%20to%20find%20out%20more%20about%20your%20lessons.">
+        Contact Me
+      </a>
+    </section>
+
+  </main>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <p>© 2026 <span>Sarah Mitchell</span> · Private English Tuition · All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
